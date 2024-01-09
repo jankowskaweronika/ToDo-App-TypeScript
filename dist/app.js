@@ -18,10 +18,6 @@ const tasks = [
 const render = () => {
     tasksContainerElement.innerHTML = "";
     tasks.forEach((task, index) => {
-        // <li>
-        //   <label for="task-1">Wyrzucić śmieci</label>
-        //   <input type="checkbox" id="task-1" name="Wyrzucić śmieci"/>
-        // </li>
         const taskElement = document.createElement("li");
         const id = `task-${index}`;
         const labelElement = document.createElement("label");
@@ -31,6 +27,10 @@ const render = () => {
         checkboxElement.type = "checkbox";
         checkboxElement.name = task.name;
         checkboxElement.id = id;
+        checkboxElement.checked = task.done;
+        checkboxElement.addEventListener("change", () => {
+            task.done = !task.done;
+        });
         taskElement.appendChild(labelElement);
         taskElement.appendChild(checkboxElement);
         tasksContainerElement.appendChild(taskElement);
