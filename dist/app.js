@@ -1,5 +1,9 @@
-const logAge = (age) => {
-    console.log(`Hej mam ${age} lat!`);
+const buttonElement = document.querySelector("button");
+const calculatePrice = (originalPrice, hasDiscount) => {
+    return hasDiscount ? originalPrice * 0.8 : originalPrice;
 };
-logAge(12);
-logAge("dwadzieścia");
+buttonElement.addEventListener("click", () => {
+    const originalPrice = 50;
+    const hasDiscount = new URLSearchParams(window.location.search).get("discount") === "true";
+    console.log(calculatePrice(originalPrice, hasDiscount));
+});
