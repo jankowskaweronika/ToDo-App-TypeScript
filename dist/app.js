@@ -36,10 +36,12 @@ const render = () => {
         tasksContainerElement.appendChild(taskElement);
     });
 };
-const addTask = (taskName) => {
-    tasks.push({ name: taskName, done: false });
+const addTask = (task) => {
+    tasks.push(task);
 };
 addButtonElement.addEventListener("click", (event) => {
-    event.preventDefault(), addTask(taskNameInputElement.value), render();
+    event.preventDefault();
+    addTask({ name: taskNameInputElement.value, done: false });
+    render();
 });
 render();
