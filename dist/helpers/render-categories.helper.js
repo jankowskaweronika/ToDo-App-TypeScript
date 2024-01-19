@@ -1,14 +1,15 @@
+import { Category } from "../types/types.js";
 const handleCategoryChange = (category) => {
-    if (category === "general") {
+    if (category === Category.GENERAL) {
         console.log("nastąpiła zmiana");
     }
-    else if (category === "gym") {
+    else if (Category.GYM) {
         alert("Lecisz na siłkę");
     }
-    else if (category === "work") {
+    else if (Category.WORK) {
         console.log("praca popłaca");
     }
-    else if (category === "hobby") {
+    else if (Category.HOBBY) {
         document.body.style.background = "red";
     }
     else {

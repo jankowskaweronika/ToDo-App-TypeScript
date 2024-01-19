@@ -1,4 +1,4 @@
-import { Category, Task } from "./types/types";
+import { Category, Task } from "./types/types.js";
 import renderTasks from "./helpers/render-tasks.helper.js";
 import { render as renderCategories } from "./helpers/render-categories.helper.js";
 
@@ -9,7 +9,12 @@ const categoriesContainerElement: HTMLElement = document.querySelector(".categor
 
 let selectedCategory: Category;
 
-const categories: Category[] = ["general", "work", "gym", "hobby"];
+const categories: Category[] = [
+  Category.GENERAL, 
+  Category.GYM, 
+  Category.HOBBY, 
+  Category.WORK
+];
 
 const tasks: Task[] = [
   {
@@ -19,12 +24,12 @@ const tasks: Task[] = [
   {
     name: "Pojść na spacer",
     done: false,
-    category: "gym"
+    category: Category.HOBBY,
   },
   {
     name: "Nakarmić psy",
     done: false,
-    category: "work"
+    category: Category.GENERAL
   },
 ];
 
@@ -47,7 +52,7 @@ addButtonElement.addEventListener("click", (event: Event) => {
   renderTasks(tasks, tasksContainerElement)
 });
 
-addTask({ name: "pojeździć konno", category: "hobby", done: false});
+addTask({ name: "pojeździć konno", category: Category.HOBBY, done: false});
 renderCategories(
   categories, 
   categoriesContainerElement, 
