@@ -3,13 +3,13 @@ const handleCategoryChange = (category) => {
     if (category === Category.GENERAL) {
         console.log("nastąpiła zmiana");
     }
-    else if (Category.GYM) {
+    else if (category === Category.GYM) {
         alert("Lecisz na siłkę");
     }
-    else if (Category.WORK) {
+    else if (category === Category.WORK) {
         console.log("praca popłaca");
     }
-    else if (Category.HOBBY) {
+    else if (category === Category.HOBBY) {
         document.body.style.background = "red";
     }
     else {
@@ -24,13 +24,13 @@ export const render = (categories, categoriesContainerElement, inputChangeCallba
         radioInputElement.type = "radio";
         radioInputElement.name = "category";
         radioInputElement.value = category;
-        radioInputElement.id = `category=${category}`;
+        radioInputElement.id = `category-${category}`;
         radioInputElement.addEventListener("change", () => {
             inputChangeCallback(category),
                 handleCategoryChange(category);
         });
         const labelElement = document.createElement("label");
-        labelElement.setAttribute("for", `category=${category}`);
+        labelElement.setAttribute("for", `category-${category}`);
         labelElement.innerText = category;
         categoryElement.appendChild(radioInputElement);
         categoryElement.appendChild(labelElement);

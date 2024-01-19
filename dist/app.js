@@ -44,6 +44,14 @@ addButtonElement.addEventListener("click", (event) => {
     });
     renderTasks(tasks, tasksContainerElement);
 });
-addTask({ name: "pojeździć konno", category: Category.HOBBY, done: false });
+const task = [
+    "pojeździć konno",
+    Category.HOBBY,
+    true
+];
+const taskName = task[0];
+const taskCategory = task[1];
+const taskDoneStatus = task[2];
+addTask({ name: taskName, category: taskCategory, done: taskDoneStatus });
 renderCategories(categories, categoriesContainerElement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
