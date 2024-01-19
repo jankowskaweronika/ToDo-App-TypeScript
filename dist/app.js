@@ -25,6 +25,10 @@ const tasks = [
 const addTask = (task) => {
     tasks.push(task);
 };
+//that function will be update our category
+const updateSelectedCategory = (newCategory) => {
+    selectedCategory = newCategory;
+};
 addButtonElement.addEventListener("click", (event) => {
     event.preventDefault();
     addTask({
@@ -35,5 +39,5 @@ addButtonElement.addEventListener("click", (event) => {
     renderTasks(tasks, tasksContainerElement);
 });
 addTask({ name: "pojeździć konno", category: "hobby", done: false });
-renderCategories(categories, categoriesContainerElement, selectedCategory);
+renderCategories(categories, categoriesContainerElement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
